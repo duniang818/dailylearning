@@ -1,0 +1,5 @@
+juypter notebook install with the anaconda3
+learning the data analyst course on the udacity
+download the dataset from kaggle: American online job postings
+data gathering: import into juypter notebook, unzip zip files, read csv files use pandas(df=pd.read_csv()), then df.head(). df.info()
+data clean:
