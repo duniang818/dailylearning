@@ -98,3 +98,30 @@ def twoSum(self, nums, target):
                         times += 1
                         finalsum += str(fsum)
                         print(finalsum)
+7. 反转一个整数
+ef reverse(x):
+    """
+    :type x: int
+    :rtype: int
+    """
+    """
+    先判断第一位符号位，小于零，则开始从第二位开始比较
+    先将整数转换成字符串，再转换成list,反转后在判断是否溢出
+    """
+    strx = str(x)
+    if x < 0:
+        strx = strx[1::]
+
+    print(strx)
+    listx = list(strx)
+    listx.reverse()
+    print(listx)
+    strx = ''
+    if x < 0:
+        strx += '-'
+    for i in listx:
+        strx += i
+        print(strx)
+    if int(strx) not in range(-2 ** 31 - 1, 2 ** 32):
+        return 0
+    return int(strx)
