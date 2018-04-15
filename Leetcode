@@ -21,3 +21,27 @@ out: 8
 case2:lengthOfLongestSubstring('你的服fhjo你的d1f2')
 out:9
 但是我想也应该输出8，为什么输出9呢？还请各位看官留意一下，一起解疑
+
+
+1. 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
+
+你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
+给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]
+
+def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        for i in range(0, len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return i,j
+                    
+  自定义测试用例：nums:[2,1,11,15,8,0,7], target:9
+  这里有两个答案：【0,6】或者【1,4】
+  也请大家帮忙试一下看看用什么方法测试运行时间，效率问题。怎么输出答案【1， 4】？
