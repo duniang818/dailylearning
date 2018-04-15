@@ -13,3 +13,11 @@ def lengthOfLongestSubstring(s):
             used_char[ch] = num
             print(ch, num)
         return max_length
+
+
+测试用例：
+case1:lengthOfLongestSubstring('你的呀吗fgef890的')
+out: 8
+case2:lengthOfLongestSubstring('你的服fhjo你的d1f2')
+out:9
+但是我想也应该输出8，为什么输出9呢？还请各位看官留意一下，一起解疑
