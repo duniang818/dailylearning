@@ -45,3 +45,56 @@ def twoSum(self, nums, target):
   自定义测试用例：nums:[2,1,11,15,8,0,7], target:9
   这里有两个答案：【0,6】或者【1,4】
   也请大家帮忙试一下看看用什么方法测试运行时间，效率问题。怎么输出答案【1， 4】？
+  
+2.  给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。
+
+你可以假设除了数字 0 之外，这两个数字都不会以零开头。
+
+示例：
+
+输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
+输出：7 -> 0 -> 8
+原因：342 + 465 = 807
+
+在刷题上说是简单题，但是用python，我没有用链表，这不是标准答案，只是我自己费了老鼻子劲儿写出来，花了一下午才调试完整，所以还是mark来来来
+  def addTwoNums(num1, num2):
+    for i in range(0, len(num1)):
+        for j in range(0, len(num2)):
+            s1 = str(num1[i])
+            s2 = str(num2[j])
+            print("begin", s1, s2)
+
+            si = len(s1) - 1
+            if s1[si] == 0: #判断最高位是否为零，如果为零，需要将位数减少一位
+                si -= 1
+            sj = len(s2) - 1
+            if s2[sj] == 0:
+                sj -= 1
+            times = 1
+            jinwei = 0
+            finalsum = []
+            weishu = 0
+            while(weishu <= min(si, sj)):
+                        sum = int(s1[weishu]) + int(s2[weishu])
+                        sumstring = str(sum)
+                        lensum = len(sumstring)
+                        if times > 1:
+                            fsum = int(sumstring[lensum - 1]) + jinwei
+                            if weishu == min(si, sj):#最高位的时候不需要截取，而且显示需要逆序
+                                fsum =  sum + jinwei
+                                if len(str(fsum)) > 1:#高位为一位的时候不需要颠倒，两位才需要颠倒
+                                    low = str(fsum)[0]
+                                    hig = str(fsum)[1]
+                                    fsum = hig + low
+                                
+                        else:
+                            fsum = sumstring[lensum - 1]
+                        if sum >= 10:
+                            jinwei = 1
+                        else:
+                            jinwei = 0
+                        
+                        weishu += 1
+                        times += 1
+                        finalsum += str(fsum)
+                        print(finalsum)
